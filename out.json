@@ -1,1 +1,0 @@
-{"items":[{"type":1,"name":"foo.com","notes":"","login":{"uris":[{"match":null,"uri":"foo.com"}],"username":"foo","password":"password"}},{"type":1,"name":" bar.com","notes":" some comment","login":{"uris":[{"match":null,"uri":" bar.com"}],"username":"bar","password":" password2"}}]}

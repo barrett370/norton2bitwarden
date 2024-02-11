@@ -2,20 +2,27 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
+	"flag"
 	"os"
 
 	"github.com/barrett370/norton2bitwarden/formats"
 )
 
+var (
+	inputFile  string
+	outputFile string
+)
+
 func main() {
-	passwords, err := formats.DecodeNortonExport("./test.csv")
+	flag.StringVar(&inputFile, "input", "input.csv", "norton password export")
+	flag.StringVar(&outputFile, "output", "output.json", "file to write bitwarden json to")
+	flag.Parse()
+	passwords, err := formats.DecodeNortonExport(inputFile)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%+v\n", passwords)
 
-	out, err := os.Create("out.json")
+	out, err := os.Create(outputFile)
 	if err != nil {
 		panic(err)
 	}
