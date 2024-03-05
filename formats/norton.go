@@ -6,15 +6,17 @@ import (
 	"github.com/gocarina/gocsv"
 )
 
-// Username, Password, Title, Login, URL, Notes
+// Item Type,User Name,Password,Site Name,Login URL,Notes,Secure,Favorite
 
 type NortonEntry struct {
-	Username string `csv:"Username"`
+	ItemType string `csv:"Item Type"`
+	Username string `csv:"User Name"`
 	Password string `csv:"Password"`
-	Title    string `csv:"Title"`
-	Login    string `csv:"Login"`
-	URL      string `csv:"URL"`
+	Title    string `csv:"Site Name"`
+	URL      string `csv:"Login URL"`
 	Notes    string `csv:"Notes"`
+	Secure   bool   `csv:"Secure"`
+	Favorite bool   `csv:"Favorite"`
 }
 
 func DecodeNortonExport(filename string) ([]NortonEntry, error) {
